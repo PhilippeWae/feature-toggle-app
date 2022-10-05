@@ -1,0 +1,10 @@
+pluginManagement {
+    repositories {
+        maven { url "https://artifactory.swisscom.com/artifactory/gradle-plugins-release-remote" }
+        maven { url "https://artifactory.swisscom.com/artifactory/plugins-release" }
+    }
+}
+
+include 'feature-toggle-frontend'
+include 'feature-toggle-backend'
+

@@ -1,0 +1,54 @@
+### Build systems ###
+
+## Gradle
+bin/
+build/
+.gradle/
+*/src/generated/
+out/
+
+## Node.js / NPM / Yarn
+/feature-toggle-frontend/dist/
+/feature-toggle-frontend/.angular/cache
+/feature-toggle-frontend/node/
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+### Editors & IDEs ###
+
+## IntelliJ IDEA
+*.iml
+*.iws
+.idea/
+# IntelliJ creates this directory in WAR-modules with WAR-dependencies
+overlays/
+
+## Eclipse
+.metadata
+.settings/
+.loadpath
+.project
+.classpath
+.externalToolBuilders/
+.apt_generated/
+.factorypath
+
+## Visual Studio Code
+.vscode/
+
+## System Files
+.DS_Store
+Thumbs.db
+
+## JVM Fatal Error logs
+hs_err_pid*.log
+
+## Files, that should never be ignored
+!**/.gitkeep
+!**/.gitignore
+!**/.gitattributes
+!**/.editorconfig
+
+

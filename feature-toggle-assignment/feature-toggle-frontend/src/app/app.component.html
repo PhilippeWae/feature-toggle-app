@@ -1,0 +1,68 @@
+<div class="container">
+  <div id="my-table" class="table table--responsive  table--no-border">
+      <div class="table__wrapper">
+      <table>
+        <thead>
+        <tr>
+          <th>{{ featureToggles.length}} Feature Toggles</th>
+          <th>
+            <sdx-input id="main-input" placeholder="Search..." (input)="onInput($event)"></sdx-input>
+          </th>
+          <th>
+            <sdx-dialog
+              class="align-right"
+              label="Create Feature Toggle"
+              type="closable-modal"
+              id="closable-modal-example"
+              display-change-callback="
+                if (arguments[0] === 'open') document.querySelector('#first-input-element').doFocus();
+                if (arguments[0] === 'closing') document.querySelector('#closable-modal-opener').doFocus();"
+            >
+              <sdx-dialog-toggle>
+                <sdx-button class="align-right" theme="cancel" icon-name="icon-plus" label="Create Feature Toggle"></sdx-button>
+              </sdx-dialog-toggle>
+              <sdx-dialog-content>
+                <p><sdx-input id="first-input-element" label="What will you call your feature toggle?"></sdx-input></p>
+                <sdx-button-group>
+                  <sdx-button label="Save" (click)="onClickCreate()" onclick="document.getElementById('closable-modal-example').close()"></sdx-button>
+                  <sdx-button label="Cancel" theme="secondary" onclick="document.getElementById('closable-modal-example').close()"></sdx-button>
+                </sdx-button-group>
+              </sdx-dialog-content>
+            </sdx-dialog>
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let featureToggle of displayedToggles">
+          <td>{{ featureToggle.name }}</td>
+          <td></td>
+          <td class="text-align-right">
+            <sdx-dialog
+              id="developers-modal-example"
+              label="Would you like to delete this file?"
+              icon-name="icon-bin"
+              display-change-callback="
+    if (arguments[0] === 'open') document.querySelector('#first-action-element').doFocus();
+    if (arguments[0] === 'closing') document.querySelector('#modal-opener').doFocus();
+  "
+            >
+              <sdx-dialog-toggle>
+                <sdx-icon icon-name="icon-bin" size="3" sr-hint="Displays the user account" color-class="sc-red"></sdx-icon>
+              </sdx-dialog-toggle>
+
+              <sdx-dialog-content>
+                <p>Do you really want to delete {{featureToggle.name}}</p>
+
+                <sdx-button-group>
+                  <sdx-button label="Yes, delete" (click)="onClickDelete(featureToggle.id)" onclick="document.getElementById('developers-modal-example').close()"></sdx-button>
+                  <sdx-button id="first-action-element" label="No, keep it" onclick="document.getElementById('developers-modal-example').close()" theme="secondary"></sdx-button>
+                </sdx-button-group>
+              </sdx-dialog-content>
+            </sdx-dialog>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
